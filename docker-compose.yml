@@ -1,6 +1,6 @@
 services:
   web:
-    image: reg.gitlab.chabokan.net/chabok/http-bridge:latest
+    build: .
     ports:
       - "81:80"
     volumes:
