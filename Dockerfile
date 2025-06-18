@@ -1,4 +1,4 @@
-FROM docker.chabokan.net/python:3.11-buster
+FROM python:3.11-buster
 
 ENV TZ=Asia/Tehran
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
