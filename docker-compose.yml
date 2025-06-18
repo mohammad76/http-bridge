@@ -1,0 +1,14 @@
+services:
+  web:
+    image: reg.gitlab.chabokan.net/chabok/http-bridge:latest
+    ports:
+      - "81:80"
+    volumes:
+      - ./core/env.py:/app/core/env.py
+    restart: "always"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+

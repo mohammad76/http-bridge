@@ -1,0 +1,11 @@
+0 0 * * * cd /app/ && /usr/bin/docker image rm $(/usr/bin/docker image ls -q) >/dev/null 2>&1
+
+* * * * * cd /app/ && /usr/local/bin/python manage.py runjobs minutely >/dev/null 2>&1
+*/15 * * * * cd /app/ && /usr/local/bin/python manage.py runjobs quarter_hourly >/dev/null 2>&1
+0 * * * * cd /app/ && /usr/local/bin/python manage.py runjobs hourly >/dev/null 2>&1
+0 2 * * * cd /app/ && /usr/local/bin/python manage.py runjobs daily >/dev/null 2>&1
+0 0 */7 * * cd /app/ && /usr/local/bin/python manage.py runjobs weekly >/dev/null 2>&1
+0 0 1 * * cd /app/ && /usr/local/bin/python manage.py runjobs monthly >/dev/null 2>&1
+0 0 1 1 * cd /app/ && /usr/local/bin/python manage.py runjobs yearly >/dev/null 2>&1
+
+# An empty line is required at the end of this file for a valid cron file

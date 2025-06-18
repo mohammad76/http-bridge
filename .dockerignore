@@ -1,0 +1,14 @@
+.gitlab-ci.yml
+./.gitlab-ci.yml
+./.git
+.git
+
+.editorconfig
+.gitignore
+.idea
+gitlab-ci-pipeline-php.png
+.pre-commit-config.yaml
+LICENSE
+Makefile
+README.md
+env.py
