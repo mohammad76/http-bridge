@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "81:80"
+      - "9400:80"
     volumes:
       - ./core/env.py:/app/core/env.py
     restart: "always"
