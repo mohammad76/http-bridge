@@ -37,9 +37,6 @@ if [ -f /app/nginx.conf ]; then
   service nginx start
 fi
 
-echo "docker login ..."
-docker login registry.chabokan.net -u chabokan_re_system -p pRE98xC5ece
-
 echo "python quarter_hourly ..."
 python manage.py runjobs quarter_hourly
 
