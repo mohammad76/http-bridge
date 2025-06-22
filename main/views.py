@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 import smtplib
 from email.mime.text import MIMEText
-
+from email.mime.multipart import MIMEMultipart
 
 @csrf_exempt
 def proxy_view(request):
@@ -53,11 +53,14 @@ def send_mail_view(request):
         if not subject or not to or not body:
             return JsonResponse({'error': 'Missing subject, to, or body parameter'}, status=400)
 
-        msg = MIMEText('سلام! این یک ایمیل تستی از پایتون است.')
+        msg = MIMEMultipart("alternative")
         msg['Subject'] = 'تست SMTP از Python'
         msg['From'] = a_from
         msg['To'] = to
 
+        html_content = body
+        mime_text = MIMEText(html_content, "html")
+        msg.attach(mime_text)
         try:
             if USE_TLS:
                 server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10)
