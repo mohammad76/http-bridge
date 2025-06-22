@@ -54,7 +54,7 @@ def send_mail_view(request):
             return JsonResponse({'error': 'Missing subject, to, or body parameter'}, status=400)
 
         msg = MIMEMultipart("alternative")
-        msg['Subject'] = 'تست SMTP از Python'
+        msg['Subject'] = subject
         msg['From'] = a_from
         msg['To'] = to
 
